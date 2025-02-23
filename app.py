@@ -5,7 +5,7 @@ import pandas as pd
 def main():
     st.title("Streamlit Plotly Demo")
 
-    # Ejemplo de datos
+    # ejem
     df = pd.DataFrame({
         "x": [1, 2, 3, 4, 5],
         "y": [10, 20, 25, 30, 40]
