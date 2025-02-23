@@ -1,3 +1,2 @@
 streamlit
-demo-echarts
-demo-pyecharts
+plotly
