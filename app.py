@@ -3,7 +3,7 @@ import plotly.express as px
 import pandas as pd
 
 def main():
-    st.title("Streamlit Plotly Demo con Datos de Google Drive")
+    st.title("Streamlit Plotly Demo")
 
     # URL del CSV en Google Drive
     csv_url = 'https://drive.google.com/uc?id=1qURQOkwzxEis7OWWvBhjuBI4VbpKIE4n'
