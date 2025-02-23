@@ -8,9 +8,13 @@ def main():
     # URL del CSV en Google Drive
     csv_url = 'https://drive.google.com/uc?id=1qURQOkwzxEis7OWWvBhjuBI4VbpKIE4n'
     
-    # Cargar el CSV en un DataFrame
-    df = pd.read_csv(csv_url)
-    
+    # Cargar el CSV en un DataFrame con una codificación específica
+    try:
+        df = pd.read_csv(csv_url, encoding='ISO-8859-1')  # Cambia la codificación si es necesario
+    except Exception as e:
+        st.error(f"Ocurrió un error al leer el CSV: {e}")
+        return
+
     # Mostrar los datos cargados
     st.write("Datos cargados:")
     st.dataframe(df)
