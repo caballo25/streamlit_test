@@ -10,7 +10,7 @@ def main():
     
     # Cargar el CSV en un DataFrame con una codificación específica
     try:
-        df = pd.read_csv(csv_url, encoding='utf-16')  # Cambia la codificación si es necesario
+        df = pd.read_csv(csv_url, encoding='utf-8')  # Cambia la codificación si es necesario
     except Exception as e:
         st.error(f"Ocurrió un error al leer el CSV: {e}")
         return
