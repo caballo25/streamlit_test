@@ -6,7 +6,7 @@ def main():
     st.title("Streamlit Plotly Demo")
 
     # URL del CSV en Google Drive
-    csv_url = 'https://drive.google.com/uc?id=1qURQOkwzxEis7OWWvBhjuBI4VbpKIE4n'
+    csv_url = 'https://drive.google.com/uc?id=1Ua6sxyZEEJq_7JOSQzPtie0Beq9hMx68'
     
     # Cargar el CSV en un DataFrame con una codificación específica
     try:
