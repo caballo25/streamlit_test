@@ -10,7 +10,7 @@ def main():
     
     # Cargar el CSV en un DataFrame con una codificación específica
     try:
-        df = pd.read_csv(csv_url, warn_bad_lines=True)  # Cambia la codificación si es necesario
+        df = pd.read_csv(csv_url, delimiter=",")  # Cambia la codificación si es necesario
     except Exception as e:
         st.error(f"Ocurrió un error al leer el CSV: {e}")
         return
