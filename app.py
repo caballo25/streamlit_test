@@ -75,7 +75,7 @@ def main():
                 "type": "line",
                 "data": lower_bound,
                 "itemStyle": {
-                    "color": "#91CC75"  # Color más claro para el límite inferior
+                    "color": "#EE6666"  # Color para el límite inferior
                 },
                 "lineStyle": {
                     "type": "dashed",  # Línea punteada
@@ -87,7 +87,7 @@ def main():
                 "type": "line",
                 "data": upper_bound,
                 "itemStyle": {
-                    "color": "#EE6666"  # Color más claro para el límite superior
+                    "color": "#91CC75"  # Color el límite superior
                 },
                 "lineStyle": {
                     "type": "dashed",  # Línea punteada
