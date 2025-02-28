@@ -40,6 +40,18 @@ def main():
                 "label": {
                     "backgroundColor": "#6a7985"
                 }
+            },
+            "formatter": function (params) {
+                let date = params[0].axisValue;
+                let pred = params[0].data;
+                let lower = params[1].data;
+                let upper = params[2].data;
+                return `
+                    Fecha: ${date}<br/>
+                    Predicción: ${pred}<br/>
+                    Límite Inferior: ${lower}<br/>
+                    Límite Superior: ${upper}
+                `;
             }
         },
         "xAxis": {
@@ -62,7 +74,7 @@ def main():
                 },
                 "areaStyle": {
                     "color": "#5470C6",
-                    "opacity": 0.1
+                    "opacity": 0.3  # Aumentar opacidad del área
                 },
             },
             {
@@ -88,14 +100,26 @@ def main():
                 },
                 "areaStyle": {
                     "color": "#EE6666",
-                    "opacity": 0.1
+                    "opacity": 0.3  # Aumentar opacidad del área
                 },
             }
         ],
         "legend": {
             "data": ["Predicción", "Límite Inferior", "Límite Superior"],
-            "bottom": "10%"
+            "top": "10%"  # Mover la leyenda hacia arriba
         },
+        "dataZoom": [  # Agregar zoom interactivo
+            {
+                "type": "inside",
+                "start": 0,
+                "end": 100
+            },
+            {
+                "type": "slider",
+                "start": 0,
+                "end": 100
+            }
+        ],
     }
 
     # Mostrar el gráfico con ECharts
