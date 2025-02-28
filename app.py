@@ -5,12 +5,12 @@ import pandas as pd
 def main():
     st.title("Streamlit Plotly Demo")
 
-    # URL del CSV en Google Drive
-    csv_url = 'https://drive.google.com/uc?id=1HEiFNYqn_9Feyb2IAHtKkLCrcaa5TU-V'  
+    #CSV en Google Drive
+    csv_url = 'https://drive.google.com/uc?id=1Lv-1RupyJ55Ip-fE1JSb7C-esOUZy__K'
     
-    # Cargar el CSV en un DataFrame con una codificación específica
+    # Cargar el CSV
     try:
-        df = pd.read_csv(csv_url, encoding='utf-8', sep=';')  # Cambia la codificación si es necesario
+        df = pd.read_csv(csv_url, encoding='utf-8', sep=';') 
     except Exception as e:
         st.error(f"Ocurrió un error al leer el CSV: {e}")
         return
