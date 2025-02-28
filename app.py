@@ -64,7 +64,7 @@ def main():
                 "type": "line",
                 "data": prediccion,
                 "itemStyle": {
-                    "color": "#5470C6"  # Color llamativo para la predicción
+                    "color": "#5470C6"  # Color para la predicción
                 },
                 "lineStyle": {
                     "width": 3  # Grosor de la línea de la predicción
