@@ -41,18 +41,12 @@ def main():
                     "backgroundColor": "#6a7985"
                 }
             },
-            "formatter": function (params) {
-                let date = params[0].axisValue;
-                let pred = params[0].data;
-                let lower = params[1].data;
-                let upper = params[2].data;
-                return `
-                    Fecha: ${date}<br/>
-                    Predicción: ${pred}<br/>
-                    Límite Inferior: ${lower}<br/>
-                    Límite Superior: ${upper}
-                `;
-            }
+            "formatter": (
+                "Fecha: {b}<br/>"
+                "Predicción: {c0}<br/>"
+                "Límite Inferior: {c1}<br/>"
+                "Límite Superior: {c2}"
+            )
         },
         "xAxis": {
             "type": "category",
