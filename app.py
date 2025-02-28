@@ -69,30 +69,33 @@ def main():
                 "lineStyle": {
                     "width": 3  # Grosor de la línea de la predicción
                 },
+                "symbol": "none"  # Sin marcadores
             },
             {
                 "name": "Límite Inferior",
                 "type": "line",
                 "data": lower_bound,
                 "itemStyle": {
-                    "color": "#EE6666"  # Color para el límite inferior
+                    "color": "#91CC75"  # Color más claro para el límite inferior
                 },
                 "lineStyle": {
                     "type": "dashed",  # Línea punteada
                     "width": 1  # Grosor reducido
                 },
+                "symbol": "none"  # Sin marcadores
             },
             {
                 "name": "Límite Superior",
                 "type": "line",
                 "data": upper_bound,
                 "itemStyle": {
-                    "color": "#91CC75"  # Color el límite superior
+                    "color": "#EE6666"  # Color más claro para el límite superior
                 },
                 "lineStyle": {
                     "type": "dashed",  # Línea punteada
                     "width": 1  # Grosor reducido
                 },
+                "symbol": "none"  # Sin marcadores
             }
         ],
         "legend": {
