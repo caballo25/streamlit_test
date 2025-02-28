@@ -3,7 +3,7 @@ import pandas as pd
 from streamlit_echarts import st_echarts
 
 def main():
-    st.title("Visualización de Forecast con Streamlit y ECharts")
+    st.title("Visualización de Forecast")
 
     # CSV en Google Drive
     csv_url = 'https://drive.google.com/uc?id=1Lv-1RupyJ55Ip-fE1JSb7C-esOUZy__K'  
