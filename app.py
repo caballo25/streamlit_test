@@ -6,7 +6,7 @@ def main():
     st.title("Visualización de Forecast con Streamlit y ECharts")
 
     # CSV en Google Drive
-    csv_url = 'https://drive.google.com/uc?id=1HEiFNYqn_9Feyb2IAHtKkLCrcaa5TU-V'  
+    csv_url = 'https://drive.google.com/uc?id=1Lv-1RupyJ55Ip-fE1JSb7C-esOUZy__K'  
     
     # Cargar el CSV
     try:
