@@ -64,11 +64,10 @@ def main():
                 "type": "line",
                 "data": prediccion,
                 "itemStyle": {
-                    "color": "#5470C6"
+                    "color": "#5470C6"  # Color llamativo para la predicción
                 },
-                "areaStyle": {
-                    "color": "#5470C6",
-                    "opacity": 0.3  # Aumentar opacidad del área
+                "lineStyle": {
+                    "width": 3  # Grosor de la línea de la predicción
                 },
             },
             {
@@ -76,10 +75,11 @@ def main():
                 "type": "line",
                 "data": lower_bound,
                 "itemStyle": {
-                    "color": "#91CC75"
+                    "color": "#91CC75"  # Color más claro para el límite inferior
                 },
                 "lineStyle": {
-                    "type": "dashed"
+                    "type": "dashed",  # Línea punteada
+                    "width": 1  # Grosor reducido
                 },
             },
             {
@@ -87,14 +87,11 @@ def main():
                 "type": "line",
                 "data": upper_bound,
                 "itemStyle": {
-                    "color": "#EE6666"
+                    "color": "#EE6666"  # Color más claro para el límite superior
                 },
                 "lineStyle": {
-                    "type": "dashed"
-                },
-                "areaStyle": {
-                    "color": "#EE6666",
-                    "opacity": 0.3  # Aumentar opacidad del área
+                    "type": "dashed",  # Línea punteada
+                    "width": 1  # Grosor reducido
                 },
             }
         ],
