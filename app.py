@@ -1,12 +1,12 @@
 import streamlit as st
-import plotly.express as px
 import pandas as pd
+from streamlit_echarts import st_echarts
 
 def main():
-    st.title("Visualización de Forecast")
+    st.title("Visualización de Forecast con Streamlit y ECharts")
 
     # CSV en Google Drive
-    csv_url = 'https://drive.google.com/uc?id=1Lv-1RupyJ55Ip-fE1JSb7C-esOUZy__K'  
+    csv_url = 'https://drive.google.com/uc?id=1HEiFNYqn_9Feyb2IAHtKkLCrcaa5TU-V'  
     
     # Cargar el CSV
     try:
@@ -25,55 +25,81 @@ def main():
         st.error(f"El CSV debe contener las columnas: {', '.join(required_columns)}")
         return
 
-    # Gráfico de línea con intervalos de confianza
-    fig = px.line(df, x='Date', y='Predicción', title='Forecast con Intervalos de Confianza')
-    
-    # Añadir intervalos de confianza
-    fig.add_scatter(
-        x=df['Date'], 
-        y=df['Lower Bound'], 
-        mode='lines', 
-        line=dict(color='rgba(0,100,80,0.2)'), 
-        name='Límite Inferior'
-    )
-    fig.add_scatter(
-        x=df['Date'], 
-        y=df['Upper Bound'], 
-        mode='lines', 
-        line=dict(color='rgba(0,100,80,0.2)'), 
-        fill='tonexty',  # Rellenar el área entre las líneas
-        name='Límite Superior'
-    )
+    # Preparar los datos para ECharts
+    dates = df['Date'].tolist()
+    prediccion = df['Predicción'].tolist()
+    lower_bound = df['Lower Bound'].tolist()
+    upper_bound = df['Upper Bound'].tolist()
 
-    # Personalizar el gráfico
-    fig.update_layout(
-        xaxis_title='Fecha',
-        yaxis_title='Predicción',
-        hovermode='x unified'  # Muestra información al pasar el mouse
-    )
+    # Configuración del gráfico de ECharts
+    options = {
+        "tooltip": {
+            "trigger": "axis",
+            "axisPointer": {
+                "type": "cross",
+                "label": {
+                    "backgroundColor": "#6a7985"
+                }
+            }
+        },
+        "xAxis": {
+            "type": "category",
+            "data": dates,
+            "boundaryGap": False,
+            "name": "Fecha",
+        },
+        "yAxis": {
+            "type": "value",
+            "name": "Predicción",
+        },
+        "series": [
+            {
+                "name": "Predicción",
+                "type": "line",
+                "data": prediccion,
+                "itemStyle": {
+                    "color": "#5470C6"
+                },
+                "areaStyle": {
+                    "color": "#5470C6",
+                    "opacity": 0.1
+                },
+            },
+            {
+                "name": "Límite Inferior",
+                "type": "line",
+                "data": lower_bound,
+                "itemStyle": {
+                    "color": "#91CC75"
+                },
+                "lineStyle": {
+                    "type": "dashed"
+                },
+            },
+            {
+                "name": "Límite Superior",
+                "type": "line",
+                "data": upper_bound,
+                "itemStyle": {
+                    "color": "#EE6666"
+                },
+                "lineStyle": {
+                    "type": "dashed"
+                },
+                "areaStyle": {
+                    "color": "#EE6666",
+                    "opacity": 0.1
+                },
+            }
+        ],
+        "legend": {
+            "data": ["Predicción", "Límite Inferior", "Límite Superior"],
+            "bottom": "10%"
+        },
+    }
 
-    # Mostrar el gráfico
-    st.plotly_chart(fig)
-
-    # Gráfico de área (opcional)
-    st.write("### Gráfico de Área")
-    fig_area = px.area(df, x='Date', y='Predicción', title='Forecast con Intervalos de Confianza (Área)')
-    fig_area.add_scatter(
-        x=df['Date'], 
-        y=df['Lower Bound'], 
-        mode='lines', 
-        line=dict(color='rgba(0,100,80,0.2)'), 
-        name='Límite Inferior'
-    )
-    fig_area.add_scatter(
-        x=df['Date'], 
-        y=df['Upper Bound'], 
-        mode='lines', 
-        line=dict(color='rgba(0,100,80,0.2)'), 
-        fill='tonexty',  # Rellenar el área entre las líneas
-        name='Límite Superior'
-    )
-    st.plotly_chart(fig_area)
+    # Mostrar el gráfico con ECharts
+    st_echarts(options=options, height="500px")
 
 if __name__ == "__main__":
     main()
