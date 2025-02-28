@@ -64,7 +64,7 @@ def main():
                 "type": "line",
                 "data": prediccion,
                 "itemStyle": {
-                    "color": "#5470C6"  # Color llamativo para la predicción
+                    "color": "#91CC75"  # Color llamativo para la predicción
                 },
                 "lineStyle": {
                     "width": 3  # Grosor de la línea de la predicción
@@ -76,7 +76,7 @@ def main():
                 "type": "line",
                 "data": lower_bound,
                 "itemStyle": {
-                    "color": "#91CC75"  # Color más claro para el límite inferior
+                    "color": "#5470C6"  # Color más claro para el límite inferior
                 },
                 "lineStyle": {
                     "type": "dashed",  # Línea punteada
